@@ -1,0 +1,21 @@
+.stage-wrapper_stage-wrapper_2bejr.stage-wrapper_full-screen_2hjMb{
+    background-color: none;
+}
+
+.msg-box{
+    border-radius: 0;
+    border-right-style: none;
+    border-left-style: none;
+    border-top-style: none;
+    border-bottom: solid 5px #37008a;
+    height: 62px;
+}
+
+.scrollbar {
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}

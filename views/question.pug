@@ -1,0 +1,216 @@
+
+<!doctype html>
+<html lang="en" style="height:100%;">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175444769-1"></script>
+
+    script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-175444769-1');
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="/css/custom.css" rel="stylesheet">
+    <title>Make A Bay</title>
+
+</head>
+
+<body style="background-color:#12002d;height:99%;">
+
+    <div class="col-lg-12" style="height:100%;">
+        <a href="/">
+            <img class="mb-4" src="/imgs/logo-white.png" alt="" height="4%" style="margin:5px;">
+            </a>
+    <div class="row"style="height:90%;">
+
+
+        <div class="col-lg-6" style="height:100%;color:white;overflow-y:scroll;">
+        <h1>What's a Bay?</h1>
+        <p>Here on Fambays, you can make a bay on any topic that interests you. If you like games, cartoons, movies, songs or maybe you have a question or literally anything else, you can share it here and make your own little fam around this bay.</p>
+        <p>Make sure you pick a good title and some good content if you want more people visiting your bay. It helps if you add some good looking images.</p>
+        <p>When inserting a picture, you need to upload your picture first on imgBB at https://imgbb.com and then follow these steps to get the image link:</p>
+        <h3>Step 1:</h3>
+        <p>Go to imgBB website and select upload as shown in this image.</p>
+        <img src="/imgs/step1.png" style="width:100%;">
+        <h3>Step 2:</h3>
+        <p>After successfuly uploading the picture, choose the option "HTML Full Linked" from the dropdown menu on imgBB and only copy the portion of the text shown in the image below.</p>
+        <img src="/imgs/step2.png" style="width:100%;">
+        <p>You should end up with a link that says something like "https://i.ibb.co/C6q5p4Y/profile.jpg" although yours will look different. After getting this link, use it when you are inserting an image in your bay.</p>
+        <p>Good luck and if you have any problems send me an email at chris@fambays.com</p>
+
+
+
+
+        </div>
+
+
+        <div class="col-lg-6" style="height:100%;">
+
+            <div class="input-group mb-3">
+            if bay
+                input(type="text" class="form-control" name="title" placeholder="Enter Title" aria-label="title" aria-describedby="basic-addon1" value= bay.title)
+                </div>
+                <div style="height: 85%;background-color: aliceblue;">
+                    - var content = bay.content
+                    div(id="editor" style="background-color: aliceblue;") !{content}
+                </div>
+                <a class="btn btn-warning" style="margin-top: 50px;font-weight: 700;" onclick="editBay()">Save Changes</a>
+            else
+                input(type="text" class="form-control" name="title" placeholder="Enter Title" aria-label="title" aria-describedby="basic-addon1")
+                </div>
+                <div style="height: 85%;background-color: aliceblue;">
+                    div(id="editor" style="background-color: aliceblue;")
+                </div>
+                <a class="btn btn-warning" style="margin-top: 50px;font-weight: 700;" onclick="makeBay()">Make A Bay</a>
+        </div>
+
+
+
+    </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    if bay
+        span(id="bayId" hidden)= bay._id
+    script.
+        var toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+            [ 'code-block'],               // custom button values
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['clean'],                                         // remove formatting button
+            ['image']
+        ];
+
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: {
+                    container: toolbarOptions,
+                    handlers: {
+                        image: imageHandler
+                    }
+                }
+            },
+        });
+
+        function imageHandler() {
+            var range = this.quill.getSelection();
+            var value = prompt('Enter image URL Below:');
+            if(value){
+                this.quill.insertEmbed(range.index, 'image', value, Quill.sources.USER);
+            }
+        }
+
+
+        function makeBay(){
+
+
+
+        var body = document.getElementsByClassName("ql-editor")[0].innerHTML
+        var title = document.getElementsByName("title")[0].value
+
+        if(body.length > 50 && title.length < 60){
+
+
+
+            // create a JSON object
+        const json = {
+            title: title,
+            body: body
+        };
+
+        // request options
+        const options = {
+            method: 'POST',
+            redirect: 'follow',
+            body: JSON.stringify(json),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        // send post request
+        fetch('/makeabay', options)
+        .then(res => {
+        // HTTP 301 response
+        window.location.href = res.url
+        })
+        .catch(function(err) {
+        console.info(err + " url: " + url);});
+
+        }else{
+            alert("Please make sure your title and body have the proper length. Title must be between 5-60 letters and body must be at least a paragraph.")
+        }
+
+
+        }
+
+        function editBay(){
+
+
+
+        var body = document.getElementsByClassName("ql-editor")[0].innerHTML
+        var title = document.getElementsByName("title")[0].value
+        var bayId = document.getElementById("bayId").innerText
+
+        if(body.length > 50 && title.length < 60 && title.search("[a-zA-Z0-9]+|(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])") !== -1 && title.length > 5){
+
+
+
+            // create a JSON object
+        const json = {
+            title: title,
+            body: body
+        };
+
+        // request options
+        const options = {
+            method: 'POST',
+            redirect: 'follow',
+            body: JSON.stringify(json),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        // send post request
+        fetch('/edit/'+bayId, options)
+        .then(res => {
+        // HTTP 301 response
+        window.location.href = res.url
+        })
+        .catch(function(err) {
+        console.info(err + " url: " + url);});
+
+        }else{
+            alert("Please make sure your title and body have the proper length. Title must be between 5-60 letters and body must be at least a paragraph.")
+        }
+
+
+        }
+
+
+
+
+</body>
+
+</html>

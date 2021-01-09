@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 98%;background-color: #474747;">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175444769-1"></script>
+    
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-175444769-1');
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="height: 98%;">
+    <img src="/watermark.png" style="position: absolute;width: 304px;"> 
+    <div id="meet" style="height: 98%;"></div>
+    span(hidden id="username")= user.username
+    <script src='https://meet.jit.si/external_api.js'></script>
+    script.
+        const domain = 'meet.jit.si';
+        const username = document.getElementById("username").innerText
+        const options = {
+            roomName: 'Fambaysmeetingroom',
+            width: "100%",
+            height: "100%",
+            displayName: username,
+            parentNode: document.querySelector('#meet'),
+            configOverwrite: {
+                backgroundColor: '#ff55cc',
+                startAudioOnly: true,
+                disableInviteFunctions: false,
+                prejoinPageEnabled: false,
+                enableWelcomePage: false,
+                enableClosePage: false
+            },
+            interfaceConfigOverwrite: {
+                DEFAULT_LOCAL_DISPLAY_NAME: username,
+                DEFAULT_REMOTE_DISPLAY_NAME: username,
+                HIDE_INVITE_MORE_HEADER: true,
+                CLOSE_PAGE_GUEST_HINT: false,
+                TOOLBAR_BUTTONS: [
+                                'microphone', 'desktop',
+                                'fodeviceselection', 
+                                'livestreaming', 'sharedvideo',
+                                'videoquality', 'filmstrip','chat'
+                            ],
+                            HIDE_KICK_BUTTON_FOR_GUESTS: false,
+
+            }
+        };
+        const api = new JitsiMeetExternalAPI(domain, options);
+        api.executeCommand('displayName', username);
+    
+</body>
+
+</html>

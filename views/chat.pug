@@ -1,0 +1,122 @@
+
+<!doctype html>
+<html lang="en" style="height:100%;">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175444769-1"></script>
+
+    script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-175444769-1');
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="/css/custom.css" rel="stylesheet">
+    <title>Fambays</title>
+
+</head>
+
+<body style="background-color:#12002d;height:99%;">
+
+    <div class="col-lg-12" style="height:100%;">
+        <div class="row" style="height:100%;">
+            <div class="col-lg-6" style="height:100%;">
+            <a href="/">
+            <img class="mb-4" src="/imgs/logo-white.png" alt="" height="4%" style="margin:5px;">
+            </a>
+            <a class = "btn btn-warning" style="color:#000000;font-size: 18px;margin-left: 45%;cursor: pointer;margin-right:10px;" data-toggle="modal" data-target="#manual">Fambays News</a> 
+            <span style="color: white;font-size: 20px;" id="userCount">5 Users Online</span><span style="margin-left: 10px;font-size:17px;color: #5eb1b1;">🟢</span>
+            <div class="modal fade" id="manual" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background-color: #12002d;color: white;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Things To Know:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" style="color: white;">×</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    <h2>How to use Fambays:</h2>
+                    <p>First of all, thank you for signing up and using Fambays. It means a lot. Here are a few pointers and guides to using Fambays.</p>
+                        <p>1- Be respectful to everyone. I don't tolerate bullying and will ban anyone if found. Also please keep the chat clean and avoid spamming.</p>
+                        <p>2- You can click on peoples' names to @ them</p>
+                        <p>3- The emojis include normal emojis and GIFs. You can scroll down to see more.</p>
+                        <p>4- When there is a notification showing another user is playing a different game and if you want to play with them, just click the blue link that says "HERE" and the same game will be loaded for you to play.</p>
+                        <p>5- The messages that have a <img src="/imgs/C25.png"> badge are comments and those with <img src="/imgs/OG25.png"> are people who are members and are chatting live. If you don't have a badge, chances are that you signed up a bit later than the initial 100 users. But I am working to make more badges for everyone. Also people with different badges are eligible for monthly or quarterly giveaways. So make sure you stick around for yours.</p>
+
+                    <p> Again, I thank you all for being here and hope you enjoy Fambays. If you do, make sure to recommend it to other friends as well.</p>   
+
+
+                <p></p></div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+    <div class="col-lg-12 scrollbar" id="messages" style="height:86%;">
+    <div class="btn btn-warning">Please be respectful in chat and DO NOT share or ask for private and personal information. Have fun on Fambays!</div>
+    </div>
+
+        if user
+            <div class="input-group mb-3">
+            <div hidden id="emojis" style="background-color: #fffffff2;height: 340%;width: 80%;position: absolute;margin-top: -220px;margin-left: 20%;font-size: 45px;padding-left: 15px;overflow: scroll;border-radius: 5px;"></div>
+                <input type="text" id="msg-input" class="form-control msg-box" placeholder="Type in message" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="showEmojis()" style="font-size: 30px;">🤓</button>
+                </div>
+            </div>
+        else
+            <div class="input-group mb-3">
+                <input type="text" disabled id="msg-input" class="form-control msg-box" placeholder="Please login to chat XD" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <a class="btn btn-warning" id="button-addon2" href="/login" disabled>Login</a>
+                </div>
+            </div>
+
+
+    </div>
+    <div class="col-lg-6" style="height: 100%;">
+    <iframe id="scratch" src="https://scratch.mit.edu/projects/411020573/embed" allowtransparency="true" width="100%" height="65%" frameborder="0" scrolling="no" allowfullscreen style="border-radius:5px;margin-top:10px;"></iframe>
+    <div class="card" style="height:33%">
+    <div class="card-body" style="overflow-y: scroll;">
+        <a href="#" id="creatorProfile" class="btn btn-primary">Creator Profile</a>
+        <div id="share"></div>
+        <h5 id = "description" class="card-title"></h5> 
+
+    </div>
+    </div>
+    </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+    if username
+        span(id="username" hidden)=username.username
+    span(id="projectId" hidden)=projectId
+    span(id="comments" hidden)=comments
+    span(id="title" hidden)=title
+    span(id="history" hidden)= JSON.stringify(history)
+    span(id="descriptionText" hidden)=description
+    
+    <script src="/js/chat.js"></script>
+</body>
+
+</html>
